@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chat;
+package ITchat;
 
 service ChatService {
   rpc sendMessage(stream ChatMessage) returns (stream ChatMessage) {}

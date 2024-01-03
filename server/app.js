@@ -1,8 +1,8 @@
-var PROTO_PATH = __dirname + '/protos/chat.proto';
+var PROTO_PATH = __dirname + '/protos/ITchat.proto';
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
 var packageDefinition = protoLoader.loadSync (PROTO_PATH);
-var chat_proto = grpc.loadPackageDefinition (packageDefinition).chat;
+var ITchat_proto = grpc.loadPackageDefinition (packageDefinition).ITchat;
 
 var clients = {
 }
@@ -38,7 +38,7 @@ function sendMessage(call) {
 
 
 var server = new grpc.Server();
-server.addService(chat_proto.ChatService.service, {
+server.addService(ITchat_proto.ChatService.service, {
   sendMessage:sendMessage
 });
 server.bindAsync("0.0.0.0:40000", grpc.ServerCredentials.createInsecure(), function() {
